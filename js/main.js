@@ -48,6 +48,8 @@ $(function () {
   $.ajax({
     url: "../data.json",
     success: (data) => {
+
+      console.log(data)
       
       // 性别
       if (data.gender === 2) {
@@ -66,12 +68,12 @@ $(function () {
       $('#grade').width(`${$('#school').width()}px`)
 
       // 班级
-      if (data.grade < 7) {
-        const id = changeClass(data.grade);
+      const id = changeClass(data.grade);
+      if (data.grade <= 6) {
         $('#grade').html(`${id}年级（${data.class}）班`)
-      } else if (data.grade > 7 && data.grade < 11) {
+      } else if (data.grade >= 7 && data.grade <= 9) {
         $('#grade').html(`初${id}（${data.class}）班`)
-      } else if (data.grade > 10) {
+      } else if (data.grade >= 10) {
         $('#grade').html(`高${id}（${data.class}）班`)
       }
 
@@ -92,8 +94,13 @@ $(function () {
 
 var changeClass = function(n) {
   const arr = ['一', '二', '三', '四', '五', '六'];
-  if (isNaN(n) && n <= 1 && n >= 6) {
+  if (isNaN(n)) {
     return;
+  } else if (n >= 7 && n <= 9) {
+    return arr[n - 7];
+  } else if (n >= 10 && n <= 12) {
+    return arr[n - 10];
+  } else {
+    return arr[n - 1];
   }
-  return arr[n - 1];
 };
