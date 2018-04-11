@@ -17,14 +17,14 @@
       <!-- 第一页 -->
       <section class="swiper-slide swiper-slide1">
         <div class="bg"></div>
-        <img id="avatar" src="./images/user-nan.png" class="ani user" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0s">
-        <div class="user-name-box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        <img id="avatar" src="./images/user-nan.png" class="ani user">
+        <div class="user-name-box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.1s">
           <div class="user-name">
             <span id="user-name"></span>
             <img id="user-img" src="./images/nan.png">
           </div>
         </div>
-        <div class="list-flex-box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+        <div class="list-flex-box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
           <div class="list-box">
             <div class="list-address">
               <div class="list-address-img">
@@ -46,20 +46,21 @@
 
       <!-- 第二页 -->
       <section class="swiper-slide swiper-slide2">
-        22222222
+        <div id="arc-chart"></div>
+        <div id="bar-chart"></div>
       </section>
 
       <!-- 第三页 -->
       <section class="swiper-slide swiper-slide3">
         <ul>
-          <li class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+          <li>
             <div class="result">
               <div class="box-list">
                 <div class="box-list-img"><img src="./images/shili.png"></div>
                 <div class="box-list-title">视力</div>
               </div>
             </div>
-            <div class="result-list one">
+            <div class="result-list one ani" swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0s">
               <div class="box-list">
                 <div id="eyeleft">4.0</div>
                 <div>左眼</div>
@@ -72,14 +73,14 @@
             </div>
           </li>
 
-          <li class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+          <li>
             <div class="result">
               <div class="box-list">
                 <div><img src="./images/xinlv.png"></div>
                 <div class="box-list-title">心率</div>
               </div>
             </div>
-            <div class="result-list two">
+            <div class="result-list two ani"  swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
               <div class="box-list">
                 <div id="heart-one">59.0</div>
                 <div>血压收缩</div>
@@ -97,14 +98,14 @@
             </div>
           </li>
 
-          <li class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+          <li>
             <div class="result">
               <div class="box-list">
                 <div><img src="./images/yachi.png"></div>
                 <div class="box-list-title">牙齿</div>
               </div>
             </div>
-            <div id="tooth" class="result-list three">
+            <div id="tooth" class="result-list three ani" swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
               
             </div>
           </li>
@@ -112,31 +113,18 @@
       </section>
 
     </div>
+    
     <div class="swiper-pagination"></div>
+    <div class="swiper-pagination-bg"></div>
   </div>
 
 
-  <script src="js/swiper.min.js"></script>
-  <script src="js/swiper.animate.min.js"></script>
-  <script src="js/zepto.min.js"></script>
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/swiper.animate.min.js"></script>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/d3.v4.min.js"></script>
+  <script src="./js/chart.js"></script>
   <script src="./js/main.js"></script>
-  <script>  
-    var mySwiper = new Swiper('.swiper-container', {
-      direction: 'vertical',
-      pagination: '.swiper-pagination',
-      mousewheelControl: true,
-      onInit: function (swiper) {
-        swiperAnimateCache(swiper);
-        swiperAnimate(swiper);
-      },
-      onSlideChangeEnd: function (swiper) {
-        swiperAnimate(swiper);
-      },
-      onTransitionEnd: function (swiper) {
-        swiperAnimate(swiper);
-      },
-    })         
-  </script>
 </body>
 
 </html>

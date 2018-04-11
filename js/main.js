@@ -45,10 +45,38 @@
 })(750, 750);
 
 $(function () {
-  $.ajax({
-    url: "../data.json",
-    success: (data) => {
 
+  var mySwiper = new Swiper('.swiper-container', {
+    direction: 'vertical',
+    pagination: '.swiper-pagination',
+    mousewheelControl: true,
+    onInit: function (swiper) {
+      swiperAnimateCache(swiper);
+      swiperAnimate(swiper);
+    },
+    onSlideChangeEnd: function (swiper) {
+      swiperAnimate(swiper);
+      if(swiper.activeIndex == 1){
+        Chart.animateToFinish();
+      }else{
+        Chart.restoreInitializedState();
+      }
+    },
+    onTransitionEnd: function (swiper) {
+      swiperAnimate(swiper);
+    },
+    onTouchMove: function(swiper) {
+      $('.swiper-pagination, .swiper-pagination-bg').css('opacity', '1');
+    },
+    onTouchEnd: function(swiper) {
+      $('.swiper-pagination, .swiper-pagination-bg').css('opacity', '0');
+    }
+  })  
+
+  $.ajax({
+    url: "./data.json",
+    success: (data) => {
+      Chart.initialize(data);
       console.log(data)
       
       // 性别
